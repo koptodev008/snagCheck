@@ -10,5 +10,9 @@ use App\Http\Controllers\Api;
 
 
 Route::middleware(['auth:sanctum'])->group(function () {
-    Route::get('/sync', [Api\SyncController::class, 'syncData']);
+    // Route::get('/sync', [Api\SyncController::class, 'syncData']);
 });
+Route::post('/addTower', [Api\SyncController::class, 'addTower']);
+Route::post('/addFlats', [Api\SyncController::class, 'addFlats']);
+Route::post('/addUserIssues', [Api\SyncController::class, 'addUserIssues']);
+

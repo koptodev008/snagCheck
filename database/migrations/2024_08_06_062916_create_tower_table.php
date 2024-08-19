@@ -12,7 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tower', function (Blueprint $table) {
+        Schema::create('towers', function (Blueprint $table) {
             $table->id();
             $table->string('tower_name');
             $table->softDeletes();
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tower');
+        Schema::dropIfExists('towers');
     }
 };
