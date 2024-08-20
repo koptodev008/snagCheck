@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\User_issue;
+use App\Models\User_issues;
 
 class HomeController extends Controller
 {
@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $user= User::all();
-        $issues = User_issue::select('user_issue.*', 'users.name')
+        $issues = User_issues::select('user_issue.*', 'users.name')
         ->join('users' , 'users.id', 'user_issue.created_by')
         ->get();
         return view('home', with(['user' => $user , 'issues' => $issues]));
