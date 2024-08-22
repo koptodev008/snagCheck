@@ -15,4 +15,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
 Route::post('/addTower', [Api\SyncController::class, 'addTower']);
 Route::post('/addFlats', [Api\SyncController::class, 'addFlats']);
 Route::post('/addUserIssues', [Api\SyncController::class, 'addUserIssues']);
+Route::post('/UploadData', [Api\SyncController::class, 'UploadData']);
+
 

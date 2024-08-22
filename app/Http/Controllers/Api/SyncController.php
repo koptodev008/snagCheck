@@ -10,6 +10,19 @@ use Illuminate\Support\Facades\DB;
 
 class SyncController extends Controller
 {
+
+     public function UploadData(Request $request){
+        $tableName = $request->table;
+        $data = $request->data;
+       foreach($data as $key => $record){
+        unset($record['id']);
+        $model = '\\App\\Models\\'.ucfirst($tableName) . 's';
+        $model::create($record);
+       }
+
+       return response()->json(['message' => 'Data Uploaded successfully.'], 200);
+    }
+
     public function syncData($tableName, $data){
         $model = '\\App\\Models\\'.ucfirst($tableName) . 's';
         foreach($data as $key => $record){
