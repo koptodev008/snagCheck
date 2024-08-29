@@ -100,6 +100,7 @@ class SyncController extends Controller
         if($image != NULL){
             $image_name = time() . '_' . $image->getClientOriginalName();
             $image_path = 'issue_images/' . $image_name; 
+            $image->move(public_path('issue_images'), $image_name);
             return $image_path;
         }else{
             $image_path = '';
